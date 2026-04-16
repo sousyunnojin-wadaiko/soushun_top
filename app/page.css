@@ -1,0 +1,94 @@
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 35%,
+    rgba(0,0,0,0.6) 60%,
+    rgba(0,0,0,0.2) 80%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 35%,
+    rgba(0,0,0,0.6) 60%,
+    rgba(0,0,0,0.2) 80%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.bubble-layer::before {
+  filter: blur(4px);
+}
+
+.bubble-layer::after {
+  filter: blur(2px);
+}
+
+
+/* layer 1 */
+.bubble-layer::before,
+.bubble-layer::after {
+  content: "";
+  position: absolute;
+  inset: -200px;
+}
+
+/* ゆっくり・大きめ */
+.bubble-layer::before {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,1) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.2) 8px, transparent 3px);
+  background-size:
+    220px 220px,
+    320px 320px;
+  animation: floatUpSlow 48s linear infinite;
+}
+
+/* 速め・小さめ */
+.bubble-layer::after {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.3) 4px, transparent 1.5px);
+  background-size:
+    140px 140px,
+    180px 180px;
+  animation: floatUpFast 28s linear infinite;
+}
+
+@keyframes floatUpSlow {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  30% {
+    transform: translateY(-120px) translateX(25px);
+  }
+  60% {
+    transform: translateY(-260px) translateX(-15px);
+  }
+  100% {
+    transform: translateY(-420px) translateX(10px);
+  }
+}
+
+@keyframes floatUpFast {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-160px) translateX(-20px);
+  }
+  50% {
+    transform: translateY(-300px) translateX(30px);
+  }
+  75% {
+    transform: translateY(-420px) translateX(-10px);
+  }
+  100% {
+    transform: translateY(-600px) translateX(15px);
+  }
+}
