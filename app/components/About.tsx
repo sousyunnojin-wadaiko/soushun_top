@@ -46,7 +46,7 @@ export function About() {
                     rel="noopener noreferrer"
                     className="block bg-cyan-600 hover:bg-cyan-700 text-white py-4 rounded-sm transition-colors duration-300 text-center text-lg tracking-wider"
                   >
-                    次回（第26回）のページへ※準備中※
+                    次回のページへ※準備中※
                   </a>
                   <a
                     href="https://25th-soushun.vercel.app/"

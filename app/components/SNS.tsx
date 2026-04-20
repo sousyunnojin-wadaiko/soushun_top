@@ -56,7 +56,7 @@ export function SNS() {
               </p>
 
               {/* Instagramの投稿埋め込みURLを少し変えて */}
-              <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+              <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center max-w-4xl mx-auto">
                 {INSTAGRAM_POST_URLS.map((url) => (
                   <blockquote
                     key={url}
