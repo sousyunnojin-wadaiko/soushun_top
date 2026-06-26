@@ -6,6 +6,10 @@ import Image from "next/image";
 import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 import { useEffect } from "react";
 
+function Keep({ children }: { children: React.ReactNode }) {
+  return <span className="inline-block">{children}</span>;
+}
+
 export function History() {
 
   const posters = [
@@ -84,11 +88,22 @@ export function History() {
 
         <div className="text-[#cccccc] text-sm md:text-base leading-[2.2] tracking-[0.08em] pt-4">
           <p>
-            和太鼓「早春の陣」は、2000 年に長岡の和太鼓団体である、<br />
-            悠久太鼓愛好会鶴亀会と輪太鼓衆転太鼓舞が中心となって立ち上がった和太鼓演奏会です。<br />
-            以降、毎年春 (2月下旬から3月初旬 ) にかけて開催されており、<br />
-            2026 年には第 25 回を迎えました。コロナ禍の影響で一時は開催を見送りましたが、<br />
-            今でも長岡の和太鼓を知っていただくためのイベントを目指し、開催しております。
+            <Keep>和太鼓「早春の陣」は、</Keep>
+            <Keep>2000年に長岡の和太鼓団体である、</Keep>
+            <Keep>悠久太鼓愛好会鶴亀会と</Keep>
+            <Keep>輪太鼓衆転太鼓舞が</Keep>
+            <Keep>中心となって立ち上がった</Keep>
+            <Keep>和太鼓演奏会です。</Keep>
+            <Keep>以降、毎年春 </Keep>
+            <Keep>（2月下旬から3月初旬）に</Keep>
+            <Keep>かけて開催されており、</Keep>
+            <Keep>2026年には第25回を迎えました。</Keep>
+            <Keep>コロナ禍の影響で一時は</Keep>
+            <Keep>開催を見送りましたが、</Keep>
+            <Keep>今でも長岡の和太鼓を</Keep>
+            <Keep>知っていただくための</Keep>
+            <Keep>イベントを目指し、</Keep>
+            <Keep>開催しております。</Keep>
           </p>
         </div>
       </div>
