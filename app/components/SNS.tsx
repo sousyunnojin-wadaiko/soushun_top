@@ -75,7 +75,7 @@ export function SNS() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-4xl mx-auto">
           {/* Instagram */}
           <div className="relative z-20 min-w-0">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-7 mb-4">
               <img src="/image/instaLogo.svg" alt="Instagramlogo" className="w-15 h-15" />
               <div>
                 <p className="text-lg tracking-[0.12em]">Instagram</p>
@@ -125,7 +125,7 @@ export function SNS() {
 
           {/* X */}
           <div className="relative z-20 min-w-0">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-7 mb-4">
               <img src="/image/xLogo.svg" alt="Xlogo" className="w-15 h-15 invert" />
               <div>
                 <p className="text-lg tracking-[0.12em]">X（旧Twitter）</p>
