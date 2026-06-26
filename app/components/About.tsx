@@ -21,23 +21,33 @@ export function About() {
       />
       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 pt-10">
         <div className="grid md:grid-cols-2 items-start">
-          <div className={`${hinaMincho.className} text-md md:text-lg leading-relaxed space-y-5 pt-8 tracking-[0.1em]`}>
-            <p>和太鼓「早春の陣」は、</p>
-            <p>毎年春に開催される<wbr></wbr>和太鼓演奏会です。<wbr></wbr></p>
-            <p>
-              <ruby>悠久太鼓<rt>ゆうきゅうだいこ</rt>愛好会<rt>あいこうかい</rt>鶴亀会<rt>つるかめかい</rt></ruby>
-              と<wbr></wbr>
-              <ruby>輪太鼓衆<rt>わだいこしゅう</rt>転太鼓舞<rt>てんてこまい</rt></ruby>
-              が<wbr></wbr>
+          <div className={`${hinaMincho.className} text-md md:text-lg leading-relaxed space-y-5 pt-8]`}>
+            <p className="leading-[3] tracking-[0.1em]">
+              <span className="block">
+              和太鼓「早春の陣」は、<br />
+              毎年春に開催される和太鼓演奏会です。
+              </span>
+              <span className="block">
+                <span className="inline-block">
+                  <ruby>悠久太鼓<rt>ゆうきゅうだいこ</rt>愛好会<rt>あいこうかい</rt>鶴亀会<rt>つるかめかい</rt></ruby>
+                </span>
+                と
+                <span className="inline-block">
+                  <ruby>輪太鼓衆<rt>わだいこしゅう</rt>転太鼓舞<rt>てんてこまい</rt></ruby>
+                </span>
+                が
+                <span className="inline-block">
+                  中心となって開催しています。
+                </span>
+              </span>
             </p>
-            <p>中心となって開催しています。</p>
           </div>
           <div className="relative flex justify-center">
             <img
               src="/image/turukameUsagi.svg"
               alt=""
               aria-hidden="true"
-              className="w-[360px] md:w-[500px] translate-x-20 translate-y-5 md:-translate-y-10"
+              className="w-[250px] md:w-[500px] translate-x-12 md:translate-x-20 translate-y-5 md:-translate-y-10"
             />
           </div>
         </div>
