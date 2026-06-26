@@ -107,7 +107,7 @@ export function History() {
                 alt={poster.label}
                 width={250}
                 height={350}
-                className="h-[350px] w-auto object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+                className="h-[350px] w-auto object-contain shadow-lg transition-all duration-300 group-hover:shadow-2xl"
               />
               <p className="text-black text-sm mt-2 text-center">
                 {poster.label}
