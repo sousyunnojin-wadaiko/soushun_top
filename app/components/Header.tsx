@@ -18,7 +18,7 @@ export function Header() {
 
   const menuItems = [
     { label: '公演について', href: '#about' },
-    { label: '出演団体', href: '#performers' },
+    { label: '出演団体', href: '#performer' },
     { label: '歴史', href: '#history' },
     { label: 'SNS情報', href: '#sns' },
   ];
