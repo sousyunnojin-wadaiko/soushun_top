@@ -50,7 +50,7 @@ export function About() {
               src="/image/turukameUsagi.svg"
               alt=""
               aria-hidden="true"
-              className="w-[250px] md:w-[500px] translate-x-12 md:translate-x-20 translate-y-5 md:-translate-y-10"
+              className="w-[250px] md:w-[500px] translate-x-12 md:translate-x-20 translate-y-5 md:-translate-y-4"
             />
           </div>
         </div>
