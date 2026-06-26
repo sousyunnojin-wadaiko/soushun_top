@@ -2,7 +2,7 @@
 
 
 import Script from "next/script";
-import { kaisei, mincho } from '@/app/fonts';
+import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 import { useEffect } from "react";
 
 declare global {
@@ -15,11 +15,9 @@ declare global {
   }
 }
 
-// Instagramの投稿URLを定数として定義
-const INSTAGRAM_POST_URLS = [
-  "https://www.instagram.com/p/DV7aAPLE1v4/?img_index=1",
-  "https://www.instagram.com/p/DUIBVAQkcFK/?img_index=1",
-]
+// 投稿URLを定数として定義
+const Instagram_POST_URL = "https://www.instagram.com/p/DV7aAPLE1v4/?img_index=1"
+const X_POST_URL = "https://x.com/sousyunnojin/status/1841674543464591567"
 
 export function SNS() {
   useEffect(() => {
@@ -29,73 +27,135 @@ export function SNS() {
   }, []);
 
   return (
-    <section id="sns" className="py-20 px-4 md:px-8">
-      <Script
-        src="https://www.instagram.com/embed.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          if (window.instgrm?.Embeds) {
-            window.instgrm.Embeds.process();
-          }
-        }}
+    <section
+      id="sns"
+      className={`${hinaMincho.className} relative overflow-hidden py-20 px-4 md:px-8`}
+    >
+      {/* 左上の雲 */}
+      <img
+        src="/image/cloudLeft.svg"
+        alt=""
+        aria-hidden="true"
+        className="
+          absolute top-0 left-0 z-10 w-[80px] md:w-[300px]
+          pointer-events-none select-none
+          translate-x-[-20%] translate-y-[280%] md:translate-y-[60%]
+        "
+      />
+      {/* 右上の雲 */}
+      <img
+        src="/image/cloudRight.svg"
+        alt=""
+        aria-hidden="true"
+        className="
+          absolute top-0 right-0 z-10 w-[100px] md:w-[400px]
+          pointer-events-none select-none
+          translate-x-[20%] translate-y-[230%] md:translate-y-[50%]
+        "
+      />
+      {/* 一番下の画像 */}
+      <img
+        src="/image/underimage.svg"
+        alt=""
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 z-0 w-full pointer-events-none select-none"
       />
 
-      <div className="max-w-6xl mx-auto">
-        <div className=" gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <div className="space-y-6">
+      <div className="relative z-20 max-w-6xl mx-auto">
+        <h2 className="text-center text-4xl md:text-5xl tracking-[0.12em] text-[#9b4650] mb-6">
+          SNS 情報
+        </h2>
+
+        <p className="text-center text-sm md:text-base leading-[2] tracking-[0.08em] mb-16">
+          Instagram と X やってます！最新情報はこちらで
+          <br />
+          発信していきますので、ぜひフォローしてください！
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14 max-w-4xl mx-auto">
+          {/* Instagram */}
+          <div className="relative z-20 min-w-0">
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/image/instaLogo.svg" alt="Instagramlogo" className="w-15 h-15" />
               <div>
-                <p className="text-cyan-700 text-center tracking-[0.2em] text-sm mb-2">Social media</p>
-                <h2 className={`${kaisei.className} text-center text-3xl md:text-4xl text-cyan-300 mb-4`}>
-                  SNS情報
-                </h2>
-              </div>
-
-              <p className="text-white leading-relaxed text-center">
-                Instagramやってます！最新情報はそちらで発信していきますので、ぜひフォローしてください！
-              </p>
-
-              {/* Instagramの投稿埋め込みURLを少し変えて */}
-              <div className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center max-w-4xl mx-auto">
-                {INSTAGRAM_POST_URLS.map((url) => (
-                  <blockquote
-                    key={url}
-                    className="instagram-media"
-                    data-instgrm-captioned
-                    data-instgrm-permalink={url}
-                    data-instgrm-version="14"
-                    style={{
-                      background:"#FFF",
-                      border:0,
-                      borderRadius: "5px",
-                      boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-                      margin: "1px auto",
-                      maxWidth: "440px",
-                      minWidth:"300px",
-                      padding:0,
-                      width: "calc(100% - 2px)",
-                    }}
-                  >
-                    <a 
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background:"#FFFFFF", 
-                        lineHeight:1.4,
-                        padding:"20px",
-                        textAlign:"center",
-                        textDecoration:"none",
-                        width:"100%",
-                        display: "block",
-                        color:"#666",
-                      }}>
-                      Instagramの投稿を見る
-                    </a>
-                  </blockquote>
-                ))}
+                <p className="text-lg tracking-[0.12em]">Instagram</p>
+                <p className="text-sm">@sousyunnojin</p>
+                <a
+                  href="https://www.instagram.com/sousyunnojin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-blue-700 underline"
+                >
+                  https://www.instagram.com/sousyunnojin
+                </a>
               </div>
             </div>
+
+            <blockquote
+              className="instagram-media"
+              data-instgrm-captioned
+              data-instgrm-permalink={Instagram_POST_URL}
+              data-instgrm-version="14"
+              style={{
+                background: "#fff",
+                border: "1px solid #d6d3d1",
+                borderRadius: "0",
+                margin: "0 auto",
+                maxWidth: "100%",
+                minWidth: "0",
+                width: "100%",
+              }}
+              >
+              <a
+                href={Instagram_POST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagramの投稿を見る
+              </a>
+            </blockquote>
+            <Script
+              src="https://www.instagram.com/embed.js"
+              strategy="lazyOnload"
+              onLoad={() => {
+                window.instgrm?.Embeds?.process();
+              }}
+            />
+          </div>
+
+          {/* X */}
+          <div className="relative z-20 min-w-0">
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/image/xLogo.svg" alt="Xlogo" className="w-15 h-15 invert" />
+              <div>
+                <p className="text-lg tracking-[0.12em]">X（旧Twitter）</p>
+                <p className="text-sm">@sousyunnojin</p>
+                <a
+                  href="https://x.com/sousyunnojin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-blue-700 underline"
+                >
+                  https://x.com/sousyunnojin
+                </a>
+              </div>
+            </div>
+            <blockquote
+              className="twitter-tweet"
+              data-lang="ja"
+            >
+              <a
+                href={X_POST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Xの投稿を見る
+              </a>
+            </blockquote>
+            <Script
+              src="https://platform.twitter.com/widgets.js"
+              strategy="lazyOnload"
+            />
           </div>
         </div>
       </div>

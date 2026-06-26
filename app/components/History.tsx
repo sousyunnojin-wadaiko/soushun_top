@@ -3,7 +3,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { kaisei, mincho } from '@/app/fonts';
+import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 import { useEffect } from "react";
 
 export function History() {
@@ -73,73 +73,71 @@ export function History() {
   }, [emblaApi]);
 
   return (
-    <section id="history" className="py-20 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className=" gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <div className="space-y-6">
-              <div>
-                <p className="text-cyan-700 text-center tracking-[0.2em] text-sm mb-2">HISTORY</p>
-                <h2 className={`${kaisei.className} text-center text-3xl md:text-4xl text-cyan-300 mb-4`}>
-                  和太鼓「早春の陣」の歴史
-                </h2>
-              </div>
+    <section id="history" className={`${hinaMincho.className} bg-[#f7f5f5] py-20`}>
+      <div className="max-w-9/10 mx-auto bg-gradient-to-b from-[#b71e39] via-[#d65a74] to-[#f7f5f5]">
+        <div className="grid md:grid-cols-[260px_1fr] gap-12 md:gap-20 mb-10 pt-2 pl-2 md:pt-15 md:pl-20">
+        <h2 className="text-[#cccccc] text-4xl md:text-5xl leading-[1.6] tracking-[0.18em]">
+          和太鼓<br />
+          早春の陣<br />
+          の歴史
+        </h2>
 
-              <p className="text-white leading-relaxed text-center">
-                和太鼓「早春の陣」は、2000年に長岡の和太鼓団体である、悠久太鼓愛好会鶴亀会と輪太鼓衆転太鼓舞が中心となって立ち上がった和太鼓演奏会です。
-              </p>
-              <p className="text-white leading-relaxed text-center">
-                以降、毎年春（2月下旬から3月初旬）に開催されており、2026年には第25回を迎えました。コロナ禍の影響で一時は開催を見送りましたが、今でも長岡の和太鼓を知ってもらうためのイベントを目指し、開催しております。
-              </p>
-
-              {/* 過去のポスター */}
-              <div className="relative" >
-              <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex gap-6 px-6 py-10 overflow-visible">
-                  {loopedPosters.map((poster, index) => (
-                    <div
-                      key={index}
-                      className="group flex-shrink-0 w-[250px] flex flex-col items-center transition-transform duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10"
-                    >
-                      <Image
-                        src={poster.src}
-                        alt={poster.label}
-                        width={250}
-                        height={350}
-                        className="h-[350px] w-auto object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl"
-                      />
-                      <p className="text-gray-400 text-sm mt-2 text-center">
-                        {poster.label}
-                        {poster.date && (
-                          <>
-                            <br />
-                            <span className="text-xs text-gray-500">
-                              （{poster.date}）
-                            </span>
-                          </>
-                        )}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                </div>
-                <button
-                  onClick={() => emblaApi?.scrollPrev()}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={() => emblaApi?.scrollNext()}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="text-[#cccccc] text-sm md:text-base leading-[2.2] tracking-[0.08em] pt-4">
+          <p>
+            和太鼓「早春の陣」は、2000 年に長岡の和太鼓団体である、<br />
+            悠久太鼓愛好会鶴亀会と輪太鼓衆転太鼓舞が中心となって立ち上がった和太鼓演奏会です。<br />
+            以降、毎年春 (2月下旬から3月初旬 ) にかけて開催されており、<br />
+            2026 年には第 25 回を迎えました。コロナ禍の影響で一時は開催を見送りましたが、<br />
+            今でも長岡の和太鼓を知っていただくためのイベントを目指し、開催しております。
+          </p>
         </div>
       </div>
+
+      {/* 過去のポスター */}
+      <div className="relative px-8 md:px-15">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex gap-6 px-6 py-10 overflow-visible">
+          {loopedPosters.map((poster, index) => (
+            <div
+              key={index}
+              className="group flex-shrink-0 w-[250px] flex flex-col items-center transition-transform duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10"
+            >
+              <Image
+                src={poster.src}
+                alt={poster.label}
+                width={250}
+                height={350}
+                className="h-[350px] w-auto object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+              />
+              <p className="text-black text-sm mt-2 text-center">
+                {poster.label}
+                {poster.date && (
+                  <>
+                    <br />
+                    <span className="text-xs text-black">
+                      （{poster.date}）
+                    </span>
+                  </>
+                )}
+              </p>
+            </div>
+          ))}
+        </div>
+        </div>
+        <button
+          onClick={() => emblaApi?.scrollPrev()}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full"
+        >
+          ←
+        </button>
+        <button
+          onClick={() => emblaApi?.scrollNext()}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white px-3 py-2 rounded-full"
+        >
+          →
+        </button>
+      </div>
+    </div>
     </section>
   );
 }
