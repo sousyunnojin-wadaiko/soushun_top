@@ -37,7 +37,7 @@ export function Performer() {
             </div>
 
             {/* 区切り線 */}
-            <div className="hidden md:block w-px bg-stone-500/70 self-stretch" />
+            <div className="hidden md:block w-px bg-stone-500/70 self-stretch"/>
 
             {/* てんてこ紹介 */}
             <div className="pt-2">
