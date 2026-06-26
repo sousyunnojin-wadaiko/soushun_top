@@ -67,7 +67,7 @@ export function Hero() {
       <div className="relative z-20 h-full flex flex-col items-center px-4 text-white">
         <div className="pt-35 text-center space-y-8 max-w-4xl">
           <div className='flex justify-center flex-wrap py-4 gap-4'>
-            <div className={`${hinaMincho.className} text-4xl md:text-5xl lg:text-6xl tracking-wider writing-mode-vertical`}>
+            <div className={`${hinaMincho.className} text-[6vh] tracking-wider writing-mode-vertical`}>
               {chars.map((char, index) => (
                 <span
                   key={index}
