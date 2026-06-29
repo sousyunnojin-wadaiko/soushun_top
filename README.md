@@ -3,7 +3,7 @@
 
 ---
 
-## はじめ方
+## 1. はじめ方
 まずは、このリポジトリを個人PCにダウンロードするところから始めましょう。
 Githubを使いたくてもよくわからない方は、[入門編ページ](https://qiita.com/T4SH1R0/items/336c05a2617d04edd714)を参照してみてください。きっと参考になりますよ～！
 
@@ -37,7 +37,7 @@ bun dev
  [http://localhost:3000](http://localhost:3000)
 
 
-## 編集方法
+## 2. 編集方法
 VSCodeにて編集することを推奨します。
 フォントについては、[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) を使用し、 vercelの[Geist](https://vercel.com/font) を最適化して読み込まれます。
 作業を始める前に、mainブランチを最新の状態にします。
@@ -67,14 +67,14 @@ git push -u origin "適当なbranch名"
 ※初回のみ、 `-u origin`を付けます。2回目以降は`git push`のみで構いません。
 その後、GitHub上でPull Requestを作成し、レビュー後にMergeしましょう。
 
-### 変更する必要があるもの
+### 2.1 変更する必要があるもの
 今後、主に変更する必要があるものは以下の3点です。
 
 - 特設ページのURL
 - ポスター画像の追加・変更
 - SNS投稿のURL
 
-#### 特設ページURLの変更手順
+#### 2.1.1 特設ページURLの変更手順
 `app > components > About.tsx` を開いてください。
 ファイルの上部に、以下のような記述があると思います。
 
@@ -95,7 +95,7 @@ const previouseventpage = "https://25th-soushun.vercel.app/";
 const nexteventpage = "https://example.com/";
 ```
 
-#### ポスター画像の追加・変更
+#### 2.1.2 ポスター画像の追加・変更
 まず、ポスター画像サイズを小さくして保存しておいてください。
 次に、そのポスター画像を`public > image > posters > `の中に入れましょう。
 次に、`app > components > History.tsx` を開いてください。
@@ -133,7 +133,7 @@ export function History() {
     { src: "/image/posters/26_poster.jpg", label: "第26回 和太鼓「早春の陣」", date: "2027年2月28日" },
 ```
 
-#### SNS投稿のURL
+#### 2.1.3 SNS投稿のURL
 `app > components > SNS.tsx` を開いてください。
 ファイルの上部に、以下のような記述があると思います。
 
@@ -157,16 +157,16 @@ const X_POST_URL = "https://x.com/sousyunnojin/status/1841674543464591567"
 随時変更をお願いいたします！
 
 
-## 学習リソース
+## 3. 学習リソース
 - [Next.js Documentation](https://nextjs.org/docs) - Next.jsの機能とAPIについて学べます。
 - [Learn Next.js](https://nextjs.org/learn) - 対話型Next.jsチュートリアルです。
 - [the Next.js GitHub repository](https://github.com/vercel/next.js) - Next.jsのGitHubリポジトリです。
 
-## デプロイ
+## 4. デプロイ
 デプロイとは、ITの分野では「システムにおいてファイルを実際のWebサーバ上に配置して利用できる状態にすること」を意味します。
 つまり、全世界に公開するということです。
 Next.jsアプリのデプロイは、Vercelの利用が最も簡単です。
 [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 
-## 詳細
+## 5. 詳細
 [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
