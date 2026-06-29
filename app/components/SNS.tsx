@@ -16,8 +16,8 @@ declare global {
 }
 
 // 投稿URLを定数として定義
-const Instagram_POST_URL = "https://www.instagram.com/p/DV7aAPLE1v4/?img_index=1"
-const X_POST_URL = "https://x.com/sousyunnojin/status/1841674543464591567"
+const Instagram_POST_URL = "https://www.instagram.com/p/DZNRUktFBmO/?img_index=1"
+const X_POST_URL = "https://x.com/sousyunnojin/status/2071484756714488061"
 
 export function SNS() {
   useEffect(() => {
