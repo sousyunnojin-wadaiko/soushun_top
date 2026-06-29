@@ -10,7 +10,6 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { History } from "./components/History";
 import { SNS } from "./components/SNS";
-import "./page.css"
 
 export default function Home() {
   const [opening, setOpening] = useState(true);
@@ -20,11 +19,7 @@ export default function Home() {
       {opening && <Opening onFinish={() => setOpening(false)} />}
 
       {/* 固定背景 */}
-      <div className="fixed inset-0 -z-10 bg-[#f4f2f3]">
-        <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden">
-          <div className="bubble-layer" />
-        </div>
-      </div>
+      <div className="fixed inset-0 -z-10 bg-[#f4f2f3]" />
       
       <div
         className={`

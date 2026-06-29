@@ -4,7 +4,6 @@ import {
   Zen_Old_Mincho,
   Hina_Mincho,
 } from 'next/font/google';
-// import localFont from 'next/font/local';
 
 export const kaisei = Kaisei_Decol({
   subsets: ['latin'],
@@ -20,11 +19,3 @@ export const hinaMincho = Hina_Mincho({
   subsets: ['latin'],
   weight: ['400'],
 });
-
-// export const tamanegi = localFont({
-//   src: './fonts/tamanegi_kaisho_free.ttf',
-// });
-
-// export const tamanegi_geki = localFont({
-//   src: './fonts/tamanegi_kaisho_geki.ttf',
-// });
