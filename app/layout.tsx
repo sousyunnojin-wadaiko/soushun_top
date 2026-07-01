@@ -29,7 +29,7 @@ export default function RootLayout({
         >
           {children}
         </body>
-        {/* <meta name="google-site-verification" content="2jyt-F18jfOVEsY_lvjz5MGUR7LsfwGm8JzqcFk8j2E" /> */}
+        <meta name="google-site-verification" content="2jyt-F18jfOVEsY_lvjz5MGUR7LsfwGm8JzqcFk8j2E" />
     </html>
   );
 }
