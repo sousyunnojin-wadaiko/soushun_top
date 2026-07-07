@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "和太鼓早春の陣 -SousyunnoJin-",
-  description: "和太鼓早春の陣 ホームページ",
+  title: "和太鼓 早春の陣 | 公式サイト -SousyunnoJin-",
+  description: "和太鼓 早春の陣 公式ホームページ。悠久太鼓愛好会つるかめ会と輪太鼓衆転太鼓舞（てんてこまい）が中心に開催する和太鼓演奏会です。開催概要やお知らせ、歴史を紹介しています。",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
