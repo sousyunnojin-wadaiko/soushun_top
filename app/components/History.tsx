@@ -117,13 +117,15 @@ export function History() {
               key={index}
               className="group flex-shrink-0 w-[250px] flex flex-col items-center transition-transform duration-300 hover:scale-110 hover:-translate-y-2 hover:z-10"
             >
-              <Image
-                src={poster.src}
-                alt={poster.label}
-                width={250}
-                height={350}
-                className="h-[350px] w-auto object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl"
-              />
+              <div className="relative h-[350px] w-[250px]">
+                <Image
+                  src={poster.src}
+                  alt={poster.label}
+                  fill
+                  sizes="250px"
+                  className="object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl"
+                />
+              </div>
               <p className="text-black text-sm mt-2 text-center">
                 {poster.label}
                 {poster.date && (

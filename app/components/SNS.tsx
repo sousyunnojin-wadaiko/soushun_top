@@ -1,9 +1,8 @@
 "use client";
 
-
 import Script from "next/script";
 import { kaisei, mincho, hinaMincho } from '@/app/fonts';
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 declare global {
   interface Window {
@@ -12,19 +11,45 @@ declare global {
         process: () => void;
       };
     };
+
+    twttr?: {
+      widgets?: {
+        load: (element: HTMLElement) => void;
+      };
+    };
   }
 }
+ 
+type SNSProps = {
+  instagramUrl: string;
+  xUrl: string;
+};
 
-// 投稿URLを定数として定義
-const Instagram_POST_URL = "https://www.instagram.com/p/Da2lGOslFMH/?hl=ja&img_index=1"
-const X_POST_URL = "https://x.com/sousyunnojin/status/2080848444797878449"
+export function SNS({ instagramUrl, xUrl }: SNSProps) {
+  const processInstagramEmbed = useCallback(() => {
+    window.instgrm?.Embeds?.process();
+  }, []);
 
-export function SNS() {
-  useEffect(() => {
-    if (window.instgrm?.Embeds) {
-      window.instgrm.Embeds.process();
+  const processXEmbed = useCallback(() => {
+    const xContainer = document.getElementById("x-post-container");
+    if (xContainer) {
+      window.twttr?.widgets?.load(xContainer);
     }
   }, []);
+
+  useEffect(() => {
+    processInstagramEmbed();
+  }, [instagramUrl, processInstagramEmbed]);
+
+  useEffect(() => {
+    processXEmbed();
+  }, [xUrl, processXEmbed]);
+
+  // useEffect(() => {
+  //   if (window.instgrm?.Embeds) {
+  //     window.instgrm.Embeds.process();
+  //   }
+  // }, []);
 
   return (
     <section
@@ -94,7 +119,7 @@ export function SNS() {
             <blockquote
               className="instagram-media"
               data-instgrm-captioned
-              data-instgrm-permalink={Instagram_POST_URL}
+              data-instgrm-permalink={instagramUrl}
               data-instgrm-version="14"
               style={{
                 background: "#fff",
@@ -107,7 +132,7 @@ export function SNS() {
               }}
               >
               <a
-                href={Instagram_POST_URL}
+                href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -116,7 +141,7 @@ export function SNS() {
             </blockquote>
             <Script
               src="https://www.instagram.com/embed.js"
-              strategy="lazyOnload"
+              strategy="afterInteractive"
               onLoad={() => {
                 window.instgrm?.Embeds?.process();
               }}
@@ -145,7 +170,7 @@ export function SNS() {
               data-lang="ja"
             >
               <a
-                href={X_POST_URL}
+                href={xUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -154,7 +179,7 @@ export function SNS() {
             </blockquote>
             <Script
               src="https://platform.twitter.com/widgets.js"
-              strategy="lazyOnload"
+              strategy="afterInteractive"
             />
           </div>
         </div>
