@@ -3,7 +3,7 @@ import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 export function Footer() {
   return (
     <footer className={`${hinaMincho.className} bg-[#190F07] text-white py-10 px-6`}>
-      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_220px_320px] gap-10 text-sm md:text-base">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-[1fr_220px_320px] pb-10 gap-10 text-sm md:text-base">
         {/* 左 */}
         <div>
           <h3 className="text-xl md:text-2xl tracking-[0.18em]">
