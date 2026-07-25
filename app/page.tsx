@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Opening } from "./components/Opening";
 import { About } from "./components/About";
@@ -10,9 +10,25 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { History } from "./components/History";
 import { SNS } from "./components/SNS";
+import { getSnsUrls, type SnsUrls, } from "./lib/getSnsUrls";
 
 export default function Home() {
   const [opening, setOpening] = useState(true);
+  const [snsUrls, setSnsUrls] = useState<SnsUrls | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadSnsUrls() {
+      const urls = await getSnsUrls();
+      if (isMounted) {
+        setSnsUrls(urls);
+      }
+    }
+    void loadSnsUrls();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <>
@@ -34,7 +50,12 @@ export default function Home() {
           <About />
           <Performer />
           <History />
-          <SNS />
+          {snsUrls && (
+            <SNS
+              instagramUrl={snsUrls.instagram}
+              xUrl={snsUrls.x}
+            />
+          )}
         </main>
 
         <Footer />
