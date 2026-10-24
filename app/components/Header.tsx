@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type MouseEvent } from "react";
 import { hinaMincho } from "@/app/fonts";
+import styles from "./Header.module.css";
 
 // ナビゲーション項目（Astro版と統一）
 const menuItems = [
@@ -48,27 +49,15 @@ export function Header() {
     };
   }, []);
 
-  // Escapeキーでメニューを閉じる
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
   // アンカーリンクのスムーズスクロール
   const handleClick = (
     event: MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
+    closeMenu = true
   ) => {
-    setIsMobileMenuOpen(false);
+    if (closeMenu) {
+      setIsMobileMenuOpen(false);
+    }
 
     // ページ最上部への移動
     if (href === "#top") {
@@ -102,22 +91,11 @@ export function Header() {
   return (
     <header
       id="header"
-      className={`
-        ${hinaMincho.className}
-        fixed top-0 z-50 w-full
-        text-base font-normal leading-[1.8]
-        tracking-normal text-[#eeeef4]
-        transition-all duration-300
-        ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-black/80"
-            : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
-        }
-      `}
+      className={`${hinaMincho.className} ${styles.header} ${isScrolled || isMobileMenuOpen ? styles.solid : ""}`}
     >
-      <div className="flex items-center justify-between px-6 py-4">
+      <div className={styles.inner}>
         {/* ロゴ */}
-        <h3 className="m-0 text-2xl font-normal leading-[1.4]">
+        <h3 className={styles.logo}>
           <a
             href="#top"
             onClick={(event) => handleClick(event, "#top")}
@@ -129,7 +107,7 @@ export function Header() {
         {/* PC用ナビゲーション */}
         <nav
           aria-label="メインナビゲーション"
-          className="hidden items-center gap-6 min-[1110px]:flex"
+          className={styles.desktopNav}
         >
           {menuItems.map((item) => (
             <a
@@ -146,11 +124,7 @@ export function Header() {
         {/* ハンバーガーボタン */}
         <button
           type="button"
-          className={`
-            menubutton relative z-[60] h-10 w-10 shrink-0
-            min-[1110px]:hidden
-            ${isMobileMenuOpen ? "open" : ""}
-          `}
+          className={`${styles.menuButton} ${isMobileMenuOpen ? styles.open : ""}`}
           onClick={() => {
             setIsMobileMenuOpen((prev) => !prev);
           }}
@@ -173,25 +147,14 @@ export function Header() {
         id="mobile-menu"
         aria-label="モバイルナビゲーション"
         aria-hidden={!isMobileMenuOpen}
-        className={`
-          absolute right-0 top-full
-          flex w-1/2 flex-col gap-5
-          bg-black/80 px-6 py-6
-          transition-transform duration-300 ease-in-out
-          min-[1110px]:hidden
-          ${
-            isMobileMenuOpen
-              ? "translate-x-0"
-              : "pointer-events-none translate-x-full"
-          }
-        `}
+        className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.visible : ""}`}
       >
         {menuItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
             tabIndex={isMobileMenuOpen ? 0 : -1}
-            onClick={(event) => handleClick(event, item.href)}
+            onClick={(event) => handleClick(event, item.href, false)}
           >
             {item.label}
           </a>

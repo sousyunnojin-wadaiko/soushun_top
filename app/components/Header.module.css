@@ -1,0 +1,110 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  color: #eeeef4;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 80%), rgb(0 0 0 / 40%), transparent);
+  transition: background 300ms;
+  /* Keep the closed mobile menu inside the header's clipping area. */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.solid {
+  background: rgb(0 0 0 / 80%);
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 24px;
+}
+
+.menuButton {
+  position: relative;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menuButton span {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: top 500ms, transform 500ms, opacity 500ms;
+}
+
+.menuButton span:first-child { top: 25%; }
+.menuButton span:nth-child(2) { top: 50%; }
+.menuButton span:last-child { top: 75%; }
+
+.open span:first-child {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.open span:nth-child(2) { opacity: 0; }
+
+.open span:last-child {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: rgb(0 0 0 / 80%);
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out, visibility 300ms;
+}
+
+.visible {
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@media (min-width: 1110px) {
+  .desktopNav { display: flex; }
+  .menuButton, .mobileMenu { display: none; }
+}

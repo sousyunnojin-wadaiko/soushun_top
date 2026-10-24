@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -7,111 +9,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-:root {
-  --color-main: #eeeef4;
-  --color-accent: #a83232;
-  --color-bg: #65140f;
-  --color-white: #fff;
-  --color-border: #ddd;
-  --font-main: "Hina Mincho", serif;
-  --font-size-small: 0.8rem;
-  --content-width: 1000px;
-  --background: var(--color-bg);
-  --foreground: var(--color-main);
-}
-
-@layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    overflow-x: hidden;
-    margin: 0;
-    color: var(--color-main);
-    background-color: var(--color-bg);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.8;
-  }
-
-  section {
-    width: 100%;
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 80px 24px;
-  }
-
-  h1,
-  h2,
-  h3 {
-    margin-top: 0;
-    line-height: 1.4;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-.menubutton span {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  width: 24px;
-  height: 2px;
-  background: white;
-  transform: translate(-50%, -50%);
-  transition: all 0.5s;
-}
-
-.menubutton span:nth-child(2) {
-  top: 50%;
-}
-
-.menubutton span:last-child {
-  top: 75%;
-}
-
-.menubutton.open span:first-child {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.menubutton.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menubutton.open span:last-child {
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .writing-mode-vertical {
@@ -119,15 +20,10 @@
   text-orientation: upright;
 }
 
+
 .ruby-title rt {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
   position: relative;
   left: 14px;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 60px 40px;
-  }
 }
