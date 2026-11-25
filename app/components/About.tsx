@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 
-const nexteventpage = "#"; //特設ページができたら、ここにURLを入れてください
+const nexteventpage = "https://26th-soushun-web.vercel.app/"; //特設ページができたら、ここにURLを入れてください
 const previouseventpage = "https://25th-soushun.vercel.app/";
 
 export function About() {
@@ -109,7 +109,7 @@ export function About() {
                     rel="noopener noreferrer"
                     className="block bg-[#12183a] hover:bg-[#9b4650] text-white py-2 rounded-full transition-colors duration-300 text-center text-md tracking-wider shadow-md shadow-black/50"
                   >
-                    次回のページへ※準備中※
+                    次回（第26回）のページへ
                   </a>
                   <a
                     href={previouseventpage}
