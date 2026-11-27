@@ -104,7 +104,6 @@ export function About() {
                 <div className="flex flex-col gap-5">
                   <a
                     href={nexteventpage}
-                    aria-disabled={nexteventpage === "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block bg-[#12183a] hover:bg-[#9b4650] text-white py-2 rounded-full transition-colors duration-300 text-center text-md tracking-wider shadow-md shadow-black/50"
