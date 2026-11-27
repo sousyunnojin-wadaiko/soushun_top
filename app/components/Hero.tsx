@@ -5,10 +5,10 @@ import { useEffect, useState} from "react";
 import { kaisei, mincho, hinaMincho } from '@/app/fonts';
 import { ChevronDown } from "lucide-react";
 
-import hero1 from '@/public/image/heros/hero_01.jpg';
-import hero2 from '@/public/image/heros/hero_02.jpg';
-import hero3 from '@/public/image/heros/hero_03.jpg';
-import hero4 from '@/public/image/heros/hero_04.jpg';
+import hero1 from '@/public/image/heros/hero_01.webp';
+import hero2 from '@/public/image/heros/hero_02.webp';
+import hero3 from '@/public/image/heros/hero_03.webp';
+import hero4 from '@/public/image/heros/hero_04.webp';
 
 const heroImages = [hero1, hero2, hero3, hero4];
 const chars = ['和', '太', '鼓', '早', '春', 'の', '陣'];

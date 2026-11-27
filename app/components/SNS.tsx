@@ -58,7 +58,7 @@ export function SNS({ instagramUrl, xUrl }: SNSProps) {
     >
       {/* 左上の雲 */}
       <img
-        src="/image/cloudLeft.svg"
+        src="/image/cloudLeft.webp"
         alt=""
         aria-hidden="true"
         className="
@@ -69,7 +69,7 @@ export function SNS({ instagramUrl, xUrl }: SNSProps) {
       />
       {/* 右上の雲 */}
       <img
-        src="/image/cloudRight.svg"
+        src="/image/cloudRight.webp"
         alt=""
         aria-hidden="true"
         className="
@@ -80,7 +80,7 @@ export function SNS({ instagramUrl, xUrl }: SNSProps) {
       />
       {/* 一番下の画像 */}
       <img
-        src="/image/underimage.svg"
+        src="/image/underimage.webp"
         alt=""
         aria-hidden="true"
         className="absolute bottom-0 left-0 z-0 w-full pointer-events-none select-none"

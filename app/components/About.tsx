@@ -47,7 +47,7 @@ export function About() {
           </div>
           <div className="relative flex justify-center">
             <img
-              src="/image/turukameUsagi.svg"
+              src="/image/turukameUsagi.webp"
               alt=""
               aria-hidden="true"
               className="w-[250px] md:w-[500px] translate-x-12 md:translate-x-20 translate-y-5 md:-translate-y-4"
@@ -125,7 +125,7 @@ export function About() {
 
           {/* 太鼓の画像 */}
           <img
-            src="/image/taikoOnly.png"
+            src="/image/taikoOnly.webp"
             alt=""
             aria-hidden="true"
             className="hidden lg:block w-full lg:w-[50vw] max-w-[700px] absolute right-0 top-0"
